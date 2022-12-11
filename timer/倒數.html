@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="timer"></h1>
+
+    <script>
+        let clock = document.getElementById('timer');
+
+        let counter = setInterval(()=>{
+            //月份從0開始所以要-1
+            let time = new Date(2022,11,10,23,59,59);
+            let now = Date.now();
+            let str = new Date(time-now);
+            console.log(time);
+            console.log(now);
+            let hours = str.getHours()-8;
+            let minutes = str.getMinutes();
+            let seconds = str.getSeconds();
+            hours = addZero(hours);
+            minutes = addZero(minutes);
+            seconds = addZero(seconds);
+
+            str = `${hours}:${minutes}:${seconds}`;
+            clock.textContent=str;
+            if(time-now<=0){
+                clock.textContent="00:00:00";
+                clearInterval(counter);
+            }
+        },1000);
+
+        function addZero(num) {
+            return num<10?'0'+num:num
+        }
+    </script>
+</body>
+</html>
