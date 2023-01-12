@@ -31,7 +31,7 @@ $(function(){
             str+=`<tr>
             <td>${item.locationName}</td>`
             $(item.weatherElement[0].time).each(function(i,img){
-                let dayNight=img.startTime.match(' 06')?'day':'night';
+                let dayNight=img.startTime.match(/\b06:|\b12:/)?'day':'night';
                 str+=`<td>${img.parameter.parameterName}${item.weatherElement[2].time[i].parameter.parameterName}-${item.weatherElement[4].time[i].parameter.parameterName}&deg;C
                 <img src='./images/${dayNight}/${img.parameter.parameterValue}.svg' width='10%'>
                 </td>`;
