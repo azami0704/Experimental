@@ -15,6 +15,9 @@ $(function(){
                 case '18:00:00':
                 title=timeStr[0]+'晚間';
                 break;
+                case '00:00:00':
+                title=timeStr[0]+'晚間';
+                break;
                 case '06:00:00':
                 title=timeStr[0]+'早上';
                 break;
@@ -23,7 +26,7 @@ $(function(){
                 break;
             }
             timeStr[1]
-            $('.date').eq(i).text(`${title}`);
+            $('.date').eq(i).text(title);
         })
 
         let str;
